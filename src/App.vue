@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="min-h-screen bg-grey-darker p-8">
+    <div class="max-w-sm mx-auto">
+      <contact-list :pseudoSlot="contact => contact.name.first">
+        <template v-slot="slotProps">
+          {{ slotProps.customer.name.last }}
+          {{ slotProps.customer.name.first }}
+          <h3>{{ slotProps.date }}</h3>
+        </template>
+      </contact-list>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ContactList from "./components/ContactList.vue";
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    ContactList
+  },
+  data() {
+    return {};
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./assets/css/app.css"/>
