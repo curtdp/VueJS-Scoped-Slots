@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-grey-darker p-8">
     <div class="max-w-sm mx-auto">
       <contact-list :pseudoSlot="contact => contact.name.first">
-        <template v-slot="slotProps">
+        <template v-slot:default="slotProps">
           {{ slotProps.customer.name.last }}
           {{ slotProps.customer.name.first }}
           <h3>{{ slotProps.date }}</h3>
@@ -20,7 +20,9 @@ export default {
     ContactList
   },
   data() {
-    return {};
+    return {
+      date: "Сегодня"
+    };
   }
 };
 </script>
